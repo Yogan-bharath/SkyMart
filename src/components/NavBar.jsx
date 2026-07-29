@@ -2,6 +2,7 @@ import { RiFlashlightFill } from "react-icons/ri";
 import { LuShoppingCart , LuLogOut } from "react-icons/lu";
 import { NavLink } from "react-router";
 const NavBar = () => {
+    const user = JSON.parse(localStorage.getItem("user"));
   return (
     <div className="flex items-center justify-between py-4 max-w-350 m-auto">
         <div className='flex items-center gap-2'>
@@ -18,7 +19,7 @@ const NavBar = () => {
 
             <div  className='flex items-center gap-2 py-1 px-3 border border-zinc-700 rounded-xl'>
                 <div className="px-2 py-1 text-[.7rem] text-black bg-[var(--pr)] h-full rounded-sm border">Y</div>
-                <h3>Yogan Bharath</h3>
+                <h3>{user.fullName}</h3>
             </div>
 
             <div className="py-2 px-3 border border-zinc-700 rounded-xl cursor-pointer">
