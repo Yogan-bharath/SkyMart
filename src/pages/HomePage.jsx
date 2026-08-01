@@ -67,7 +67,7 @@ const HomePage = () => {
                 />
                 <div className='flex flex-col gap-3'>
                     <p className='uppercase tracking-[2px]'>Good evening 👋</p>
-                    <h1 className='text-6xl/14 font-medium'>Welcome back,<br /><span className='text-[var(--pr)]'>{user.fullName}!</span></h1>
+                    <h1 className='text-6xl/14 font-medium'>Welcome back,<br /><span className='text-[var(--pr)]'>{user?.fullName}!</span></h1>
                     <p className='text-xl w-[70%] my-3 text-zinc-400'>Discover today's picks — hand-curated products across electronics, fashion, and more.</p>
                     <div className='flex items-center gap-3'>
                         <button className='text-black bg-[var(--pr)]  font-medium flex items-center justify-center gap-2  py-3 px-5 rounded-2xl'>

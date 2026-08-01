@@ -8,20 +8,18 @@ import ProductCard from "../components/ProductCard";
 
 export default function ProductFilters() {
     const {products} = useContext(ProductContext)
-    console.log(products)
   const clearFilters = () => {
-    setFilters({
-    search: "",
-    category: "",
-    sort: "",
-})
+      setFilters({
+      search: "",
+      category: "",
+      sort: "",
+  })
 };
 const [filters, setFilters] = useState({
     search: "",
     category: "",
     sort: "",
 });
-console.log(filters)
 const handleChange = (e)=>{
     const { name , value } = e.target
     setFilters((prev)=>({...prev,[name]:value}))
@@ -70,6 +68,7 @@ const filteredProducts = useMemo(() => {
 
   return result;
 }, [products, filters]);
+
   return (
     <section className="py-4 max-w-[1400px] mx-auto bg-[#111111]">
       <h1 className="text-5xl font-bold text-white">

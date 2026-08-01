@@ -1,11 +1,13 @@
-import React, { useContext } from 'react'
+import React, { useContext, useEffect } from 'react'
 import { Outlet } from 'react-router'
 import { ProductContext } from '../Context/ProductsContext'
 import { useNavigate } from 'react-router'
 const AuthLayOut = () => {
   const navigate = useNavigate()
-  let user = localStorage.getItem("user");
-  if(user) navigate("/home")
+  useEffect(()=>{
+    let user = JSON.parse(localStorage.getItem("user"));
+    if(user) navigate("/home")
+  },[])
   return (
     <div className='h-full w-full'>
         <Outlet/>

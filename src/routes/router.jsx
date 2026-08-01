@@ -9,7 +9,6 @@ import AboutPage from '../pages/AboutPage'
 
 export const router = createBrowserRouter([
     {
-        path:"",
         element:<AuthLayOut/>,
         children:[
             {
@@ -20,12 +19,11 @@ export const router = createBrowserRouter([
                 element:<RegisterPage/>
             }
         ]
-    },{
-        path:"/home",
+    },{ 
         element:<MainLayout/>,
         children:[
             {
-                 index:true,
+                 path:"home",
                  element:<HomePage/>
             },{
                 path:"products",

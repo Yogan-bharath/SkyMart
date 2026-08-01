@@ -3,6 +3,7 @@ import { RiArrowRightLine } from "react-icons/ri";
 import { LuMail ,LuLock } from "react-icons/lu";
 import { useNavigate } from 'react-router'
 import { useForm } from 'react-hook-form'
+import { toast } from 'react-toastify';
 const Login = () => {
   const navigate = useNavigate();
   const { register , handleSubmit , reset , formState:{errors} } = useForm();
@@ -11,13 +12,17 @@ const Login = () => {
     let user = registerUsers.find((user)=>data.email===user.email);
     if(!user){
       console.log("not found")
+      toast.error("Invalid User or User Not Found")
       return;
     }else{
       if(user.password===data.password){
         localStorage.setItem("user",JSON.stringify(user));
         navigate("/home")
+        toast.success("Login Successful")
+        reset();
+      }else{
+        toast.error("Invalid Email or Password!")
       }
-      reset();
     }
   }
   return (

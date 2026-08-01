@@ -12,25 +12,25 @@ const NavBar = () => {
 
         <div  className='[@media(max-width:700px)]:hidden flex items-center gap-5 text-zinc-500 font-medium'>
             <NavLink to="/home" end>Home</NavLink>
-            <NavLink to="/home/products">Shop</NavLink>
-            <NavLink to="/home/about">About</NavLink>
+            <NavLink to="/products">Shop</NavLink>
+            <NavLink to="/about">About</NavLink>
         </div>
         <div  className='flex items-center gap-3 text-zinc-400'>
 
             <div  className='flex items-center gap-2 py-1 px-3 border border-zinc-700 rounded-xl'>
                 <div className="px-2 py-1 text-[.7rem] text-black bg-[var(--pr)] h-full rounded-sm border">Y</div>
-                <h3>{user.fullName}</h3>
+                <h3>{user?.fullName}</h3>
             </div>
 
             <div className="py-2 px-3 border border-zinc-700 rounded-xl cursor-pointer">
                 <LuShoppingCart/>
             </div>
 
-            <div onClick={()=>{
+            <NavLink to="/" onClick={()=>{
                 localStorage.removeItem("user")
             }} className="py-2 px-3 border border-zinc-700 rounded-xl cursor-pointer">
                 <LuLogOut/>
-            </div>
+            </NavLink>
         </div>
     </div>
   )

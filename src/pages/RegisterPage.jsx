@@ -3,20 +3,27 @@ import { LuLock, LuMail , LuUser } from 'react-icons/lu'
 import { RiArrowRightLine, RiFlashlightFill } from 'react-icons/ri'
 import { useNavigate } from 'react-router'
 import { useForm, Watch } from 'react-hook-form'
+import { toast } from 'react-toastify'
 const RegisterPage = () => {
     const navigate = useNavigate();
     const { register , handleSubmit , reset , formState:{errors} } = useForm();
     const registerHandler = (data)=>{
       data.id = Date.now();
       if(data.password!=data.confirmPassword){
-        console.log("miss patch")
+        toast.error("Confirm Password not matched")
         return;
       }
       const registerUsers = JSON.parse(localStorage.getItem("skyMartRegisterUsers")) || [];
+      let user = registerUsers.find((user)=>data.email===user.email);
+      if(user){
+        toast.error("Email Already Exists")
+        return
+      }
       registerUsers.push(data)
       localStorage.setItem("skyMartRegisterUsers",JSON.stringify(registerUsers));
       reset()
       navigate("/")
+      toast.success("User Created Successfully")
     } 
     return (
     <div className='h-full w-full text-white '>
