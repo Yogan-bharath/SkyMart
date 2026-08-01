@@ -145,7 +145,7 @@ const HomePage = () => {
             <div className='flex flex-col gap-3 my-4'>
                 <div className='flex items-center justify-between'>
                     <h1 className='text-2xl font-medium'>Shop by Category</h1>
-                    <p className='flex items-center gap-2 text-[var(--pr)] cursor-pointer' onClick={() => { navitage("products") }}>View All <LuArrowRight /></p>
+                    <p className='flex items-center gap-2 text-[var(--pr)] cursor-pointer' onClick={() => { navitage("/products") }}>View All <LuArrowRight /></p>
                 </div>
                 <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-3">
                     {categories.map((category, index) => {

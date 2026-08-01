@@ -9,7 +9,7 @@ const Footer = () => {
         </h2>
 
         <p className="text-sm text-zinc-500 text-center">
-        © 2025 SkyMart • Built with React + Redux + TanStack Query
+        © 2025 SkyMart • Built with React + TailWind + ContextAPI
         </p>
     </div>
     </footer>
