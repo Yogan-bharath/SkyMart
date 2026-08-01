@@ -67,7 +67,6 @@ export default function ProductCard({ product }) {
                 return [...prev,product];
             })
             toast.success("Added to cart 🛒")
-            setCartOpen(true)
           }}
             disabled={product.stock === 0}
             className="cursor-pointer text-sm flex items-center gap-2 rounded-xl bg-[var(--pr)] px-3 py-2 font-semibold text-black transition disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"
