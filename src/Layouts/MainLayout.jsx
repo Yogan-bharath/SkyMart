@@ -1,10 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useContext, useEffect } from "react";
 import { Outlet, useNavigate } from "react-router";
 import NavBar from "../components/NavBar";
 import Footer from "../components/Footer";
+import Cart from "../components/Cart";
+import { ProductContext } from "../Context/ProductsContext";
 
 const MainLayout = () => {
   const navigate = useNavigate()
+  const {cartOpen} = useContext(ProductContext)
     useEffect(()=>{
       let user = JSON.parse(localStorage.getItem("user"));
       if(!user) navigate("/")
@@ -20,6 +23,11 @@ const MainLayout = () => {
       </div>
 
       <Footer />
+      <div className={`fixed top-0 right-0 w-120 max-[600px]:w-full bg-black h-full transition z-10 ${
+        cartOpen ? "translate-x-0" : "translate-x-[100%]"
+      }`}>
+        <Cart/>
+      </div>
     </div>
   );
 };

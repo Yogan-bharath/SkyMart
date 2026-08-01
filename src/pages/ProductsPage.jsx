@@ -118,12 +118,14 @@ const filteredProducts = useMemo(() => {
             <option value="newest">Newest</option>
           </select>
 
-          <button
-            onClick={clearFilters}
-            className="h-14 px-8 rounded-2xl border border-red-500/30 bg-red-500/10 text-red-400 hover:bg-red-500/20 transition"
-          >
-            Clear
-          </button>
+          {
+            (filters.category || filters.sort) && <button
+              onClick={clearFilters}
+              className="h-14 px-8 rounded-2xl border border-red-500/30 bg-red-500/10 text-red-400 hover:bg-red-500/20 transition"
+            >
+              Clear
+            </button>
+          }
 
         </div>
 

@@ -1,9 +1,10 @@
 import { useContext } from "react";
 import { HiOutlineShoppingCart, HiStar ,HiOutlineCheck  } from "react-icons/hi2";
 import { ProductContext } from "../Context/ProductsContext";
+import { toast } from "react-toastify";
 
 export default function ProductCard({ product }) {
-    const {cartProducts,setCartProducts} = useContext(ProductContext)
+    const {cartProducts,setCartProducts,setCartOpen} = useContext(ProductContext)
     let  isIntCart = cartProducts.find((p)=>p.id==product.id);
   return (
     <div className="overflow-hidden rounded-[28px] border border-zinc-700 bg-[#151515] hover:-translate-y-1 hover:shadow-xl transition">
@@ -62,8 +63,11 @@ export default function ProductCard({ product }) {
             </button> : <button onClick={()=>{
             setCartProducts(prev=>{
                 product.quantity = 1;
+                product.total = product.price;
                 return [...prev,product];
             })
+            toast.success("Added to cart 🛒")
+            setCartOpen(true)
           }}
             disabled={product.stock === 0}
             className="cursor-pointer text-sm flex items-center gap-2 rounded-xl bg-[var(--pr)] px-3 py-2 font-semibold text-black transition disabled:cursor-not-allowed disabled:bg-zinc-600 disabled:text-zinc-300"

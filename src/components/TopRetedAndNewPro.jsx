@@ -6,8 +6,11 @@ import {
   HiOutlineBolt,
   HiOutlineShoppingBag,
 } from "react-icons/hi2";
+import { useNavigate } from 'react-router';
+import { toast } from 'react-toastify';
 const TopRetedAndNewPro = () => {
-const {topRated,newArrivals} = useContext(ProductContext)
+  const navigate = useNavigate();
+const {topRated,newArrivals,setCartProducts,setCartOpen,addToCartFromHome} = useContext(ProductContext)
   return (
      <section className="w-full bg-[#0d0d0d] py-12">
       <div className="max-w-7xl mx-auto px-6">
@@ -23,7 +26,7 @@ const {topRated,newArrivals} = useContext(ProductContext)
                 </h2>
               </div>
 
-              <button className="flex items-center gap-2 text-lime-700 hover:text-lime-800 font-medium">
+              <button onClick={()=>navigate("/products")} className="cursor-pointer flex items-center gap-2 text-lime-700 hover:text-lime-800 font-medium">
                 See all →
               </button>
             </div>
@@ -52,8 +55,11 @@ const {topRated,newArrivals} = useContext(ProductContext)
                     </div>
                   </div>
 
-                  <button className="w-12 h-12 rounded-2xl bg-lime-100 hover:bg-lime-200 flex items-center justify-center">
-                    <HiOutlineShoppingBag className="text-xl text-lime-700" />
+                  <button onClick={()=>{
+                    addToCartFromHome(product.id,product)
+                    setCartOpen(true)
+                  }} className="w-12 h-12 cursor-pointer rounded-2xl bg-lime-100 hover:bg-lime-200 flex items-center justify-center">
+                    <HiOutlineShoppingBag  className="text-xl text-lime-700" />
                   </button>
                 </div>
               ))}
@@ -69,7 +75,7 @@ const {topRated,newArrivals} = useContext(ProductContext)
                 </h2>
               </div>
 
-              <button className="flex items-center gap-2 text-lime-700 hover:text-lime-800 font-medium">
+              <button  onClick={()=>navigate("/products")} className="cursor-pointer flex items-center gap-2 text-lime-700 hover:text-lime-800 font-medium">
                 See all →
               </button>
             </div>
@@ -98,7 +104,10 @@ const {topRated,newArrivals} = useContext(ProductContext)
                     </div>
                   </div>
 
-                  <button className="w-12 h-12 rounded-2xl bg-lime-100 hover:bg-lime-200 flex items-center justify-center">
+                  <button onClick={()=>{
+                    addToCartFromHome(product.id,product)
+                    setCartOpen(true)
+                  }}  className="w-12 h-12 rounded-2xl bg-lime-100 hover:bg-lime-200 flex items-center justify-center">
                     <HiOutlineShoppingBag className="text-xl text-lime-700" />
                   </button>
                 </div>

@@ -219,8 +219,8 @@ const AboutPage = () => {
       </p>
 
       <div
-        to="products" onClick={()=>{navigate("/home/products")}}
-        className="inline-flex items-center gap-3 mt-6 px-8 py-3 rounded-2xl bg-lime-400 text-black text-xl font-semibold hover:bg-lime-300 transition-all duration-300 hover:scale-101"
+        to="products" onClick={()=>{navigate("/products")}}
+        className="cursor-pointer inline-flex items-center gap-3 mt-6 px-8 py-3 rounded-2xl bg-lime-400 text-black text-xl font-semibold hover:bg-lime-300 transition-all duration-300 hover:scale-101"
       >
         Browse Products
         <HiOutlineArrowRight className="text-2xl" />
